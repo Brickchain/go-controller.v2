@@ -15,7 +15,7 @@ import (
 )
 
 // ControllerDescriptorHandler is a helper for publishing the controller-descriptor on an endpoint
-func ControllerDescriptorHandler(req httphandler.RequestWithBinding) httphandler.Response {
+func ControllerDescriptorHandler(req RequestWithBinding) httphandler.Response {
 	if req.URL().Query().Get("secret") != req.Binding().Secret() {
 		return httphandler.NewErrorResponse(http.StatusForbidden, errors.New("Wrong secret"))
 	}
@@ -37,7 +37,7 @@ func ControllerDescriptorHandler(req httphandler.RequestWithBinding) httphandler
 }
 
 // BindingCallback handles the controller-binding response
-func BindingCallback(req httphandler.RequestWithBinding) httphandler.Response {
+func BindingCallback(req RequestWithBinding) httphandler.Response {
 
 	if req.URL().Query().Get("secret") != req.Binding().Secret() {
 		return httphandler.NewErrorResponse(http.StatusForbidden, errors.New("Wrong secret"))

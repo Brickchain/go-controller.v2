@@ -7,8 +7,8 @@ import (
 	controller "github.com/Brickchain/go-controller.v2"
 	"github.com/Brickchain/go-crypto.v2"
 	"github.com/Brickchain/go-document.v2"
+	keys "github.com/Brickchain/go-keys.v1"
 	"github.com/jinzhu/gorm"
-	keys "gitlab.brickchain.com/libs/go-keys.v1"
 	jose "gopkg.in/square/go-jose.v1"
 )
 

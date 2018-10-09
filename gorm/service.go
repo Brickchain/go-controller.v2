@@ -51,7 +51,11 @@ func (g *gormBindingService) New(id string) (controller.Binding, error) {
 }
 
 func (g *gormBindingService) Get(id string) (controller.Binding, error) {
-	b := &gormBinding{}
+	b := &gormBinding{
+		postBindFunc:   g.postBindFunc,
+		postUnbindFunc: g.postUnbindFunc,
+	}
+
 	err := g.db.Where("id = ?", id).First(&b).Error
 
 	b.db = g.db

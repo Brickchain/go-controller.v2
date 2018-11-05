@@ -25,7 +25,7 @@ func ControllerDescriptorHandler(req RequestWithBinding) httphandler.Response {
 	descriptor.Key = req.Binding().PublicKey()
 	descriptor.Status = req.Binding().Status()
 
-	if !strings.Contains(descriptor.AdminUI, "binding=") {
+	if descriptor.AdminUI != "" && !strings.Contains(descriptor.AdminUI, "binding=") {
 		separator := "?"
 		if strings.Contains(descriptor.AdminUI, "?") {
 			separator = "&"
